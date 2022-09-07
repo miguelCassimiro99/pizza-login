@@ -1,3 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* .form-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+} */
+.form-overlay {
+  transform: translateX(100%);
+}
+
+.login-container.toggle .form-overlay {
+  transform: translateX(0%);
+}
