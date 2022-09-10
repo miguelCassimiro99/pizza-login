@@ -2,15 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
-/* .form-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-} */
+.form-register {
+  transform: translateX(-100%);
+  z-index: -1;
+  opacity: 0;
+}
+
 .form-overlay {
   transform: translateX(100%);
 }
 
 .login-container.toggle .form-overlay {
   transform: translateX(0%);
+}
+
+.login-container.toggle .form-login {
+  transform: translateX(100%);
+  z-index: -1;
+  opacity: 0;
+}
+
+.login-container.toggle .form-register {
+  transform: translateX(0%);
+  z-index: 1;
+  opacity: 1;
+  transition: 1s;
 }

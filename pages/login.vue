@@ -1,35 +1,37 @@
 <template lang="pug">
 main(class="h-screen dark:bg-slate-900 flex justify-center items-center")
-  .login-container(:class="formSelected ? 'toggle h-[480px] w-[768px] rounded-md shadow-xl overflow-hidden border-slate-900 relative' : ' h-[480px] w-[768px] rounded-md shadow-xl overflow-hidden border-slate-900 relative'")
+  .login-container(
+    class="h-full w-full  md:h-[480px] md:w-[768px] rounded-md shadow-xl overflow-hidden border-slate-900 relative"
+    :class="formSelected ? 'toggle ' : ''"
+  )
     .form-container(class="h-full flex")
-      form.form(class="h-full w-[50%]")
+      form.form-login(class="h-full w-full md:w-[50%] bg-slate-900 duration-1000")
         h2(class="text-xl text-orange-600") Entrar com
 
-      form.form(class="h-full w-[50%]")
-        h2(class="text-xl text-orange-600") Cadastrar
+      form.form-register(class="h-full w-[50%] bg-slate-900 duration-1000")
+        h2(class="text-xl text-orange-600") Não tenho conta
 
-    .form-overlay(class="w-[50%] h-full absolute top-0 left-0 transition-all")
-      .overlay-one(class="absolute w-full h-full bg-orange-600" v-if="formSelected")
+    .form-overlay(class="w-full md:w-[50%] absolute top-0 left-0 duration-1000 z-10 hidden md:block")
+      .overlay-one(class="absolute w-full h-full bg-orange-600 duration-1000" v-if="formSelected")
         button(@click="toggleForm()") Já tenho conta
-      .overlay-two(class="absolute w-full h-full bg-orange-600" v-else)
+      .overlay-two(class="absolute w-full h-full bg-orange-600 duration-1000" v-else)
         button(@click="toggleForm()") cadastrar
 </template>
 
 <script setup lang="ts">
   type Theme = 'light' | 'dark';
-
   const formSelected = ref(false);
  
   const setColorTheme = (newTheme: Theme) => {
     useColorMode().preference = newTheme;
   }
 
-  onMounted(() => {
-    setColorTheme('dark')
-  });
-
   const toggleForm = () => {
     return formSelected.value = !formSelected.value;
   }
+
+  onMounted(() => {
+    setColorTheme('dark')
+  });
 
 </script>
