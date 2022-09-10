@@ -28,3 +28,10 @@
   opacity: 1;
   transition: 1s;
 }
+
+@media(max-width: 768px) {
+  .login-container.toggle .form-register {
+    transform: translateX(0%);
+    position: absolute;
+  }
+}
