@@ -13,6 +13,8 @@
     "vite-plugin-pug": "^0.3.1"
   },
   "dependencies": {
-    "@nuxtjs/color-mode": "^3.1.4"
+    "@nuxtjs/color-mode": "^3.1.4",
+    "@vuelidate/core": "^2.0.0-alpha.44",
+    "@vuelidate/validators": "^2.0.0-alpha.31"
   }
 }
