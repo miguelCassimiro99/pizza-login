@@ -6,7 +6,10 @@ main(class="h-screen dark:bg-slate-900 flex justify-center items-center")
   )
 
     .form-container(class="h-full flex")
-      form.form-login(class="h-full w-full md:w-[50%] duration-1000 absolute md:relative flex flex-col items-center justify-evenly py-6 px-6")
+      form.form-login(
+        @submit.prevent="submitLoginForm"
+        class="h-full w-full md:w-[50%] duration-1000 absolute md:relative flex flex-col items-center justify-evenly py-6 px-6"
+      )
         h2(class="text-xl text-orange-600") Login with
 
         base-input(
@@ -18,12 +21,16 @@ main(class="h-screen dark:bg-slate-900 flex justify-center items-center")
 
         base-input(
           label="Password"
-          v-model="formData.username"
+          v-model="formData.password"
           class="rounded-md text-white"
           type="password"
         )
        
-        button(type="button" class="text-orange-600") Entrar
+        button(type="submit" class="text-orange-600") Entrar
+
+        div
+          span(class="text-sm text-red-600" v-for="error in v$.$errors" :key="error.$uid")
+            | {{ error.$property }} -  {{ error.$message }}
 
         button(
           type="button"
@@ -67,6 +74,8 @@ main(class="h-screen dark:bg-slate-900 flex justify-center items-center")
 </template>
 
 <script setup lang="ts">
+  import useVueLidade from '@vuelidate/core';
+  import { required, email } from '@vuelidate/validators';
   type Theme = 'light' | 'dark';
 
   const setColorTheme = (newTheme: Theme) => {
@@ -88,13 +97,20 @@ main(class="h-screen dark:bg-slate-900 flex justify-center items-center")
     password: "",
   });
 
-  // const rules = computed(() => {
-  //   return {
-  //     username: {
-  //       required
-  //     }
-  //   }
-  // })
+  const rules = computed(() => {
+    return {
+      email: { required, email },
+      password: { required }
+    }
+  })
 
+  const v$ = useVueLidade(rules, formData);
+
+  const submitLoginForm = async () => {
+    const results = await v$.value.$validate()
+
+    if(!results) console.log('Form: its not submited error');
+    if(results) console.log('Form: user has been created')
+  }
 
 </script>
