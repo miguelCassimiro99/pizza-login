@@ -3,7 +3,11 @@ module.exports = {
   darkMode: 'class',
   content: [],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        "nunito": ["Nunito"]
+      }
+    },
   },
   plugins: [],
 }

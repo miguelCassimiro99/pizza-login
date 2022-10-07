@@ -10,8 +10,10 @@ export default defineNuxtConfig({
     cssPath: '~/assets/css/tailwind.css',
     configPath: 'tailwind.config.js',
     exposeConfig: false,
-    config: {},
     injectPosition: 0,
     viewer: true,
-  }
+  },
+  css: [
+    '@fortawesome/fontawesome-svg-core/styles.css',
+  ]
 })

@@ -1,5 +1,5 @@
 <template lang="pug">
-main(class="h-screen dark:bg-slate-900 flex justify-center items-center")
+main(class="h-screen dark:bg-slate-900 flex justify-center items-center font-nunito")
   .login-container(
     class="h-full w-full md:h-[480px] md:w-[768px] rounded-md shadow-none md:shadow-xl overflow-hidden border-slate-900 relative"
     :class="formSelected ? 'toggle' : ''"
@@ -10,19 +10,29 @@ main(class="h-screen dark:bg-slate-900 flex justify-center items-center")
         @submit.prevent="submitLoginForm"
         class="h-full w-full md:w-[50%] duration-1000 absolute md:relative flex flex-col items-center justify-evenly py-6 px-6"
       )
-        h2(class="text-xl text-orange-600") Login with
+        h2(class="text-3xl font-semibold text-orange-600 capitalize") Login with
+
+        div(class="flex justify-center items-center h-9")
+          a(href="#" class="block py-2")
+            font-awesome-icon(icon="fa-brands fa-facebook" class="rounded-full border-2 border-slate-900 hover:border-orange-600 text-orange-600  hover:text-slate-900 hover:bg-orange-600 fa-2x mx-2")
+          a(href="#" class="block py-2")
+            font-awesome-icon(icon="fa-brands fa-google" class="rounded-full border-2 border-slate-900 hover:border-orange-600 text-orange-600  hover:text-slate-900 hover:bg-orange-600 fa-2x mx-2")
+          a(href="#" class="block py-2")
+            font-awesome-icon(icon="fa-brands fa-github" class="rounded-full border-2 border-slate-900 hover:border-orange-600 text-orange-600  hover:text-slate-900 hover:bg-orange-600 fa-2x mx-2")
+
+
+        hr
+        span(class="text-orange-500") or
 
         base-input(
           label="Email"
           v-model="formData.email"
           type="email"
-          class="rounded-md text-white"
         )
 
         base-input(
           label="Password"
           v-model="formData.password"
-          class="rounded-md text-white"
           type="password"
         )
        
@@ -44,14 +54,12 @@ main(class="h-screen dark:bg-slate-900 flex justify-center items-center")
         base-input(
           label="Username"
           v-model="formData.username"
-          class="rounded-md text-white"
         )
 
         base-input(
           label="Email"
           v-model="formData.email"
           type="email"
-          class="rounded-md text-white"
         )
        
         button(type="button") Entrar
@@ -62,7 +70,7 @@ main(class="h-screen dark:bg-slate-900 flex justify-center items-center")
           @click="toggleForm()"
         ) Have an account? Login
 
-    .form-overlay(class="w-full md:w-[50%] h-full absolute top-0 left-0 transition-all duration-1000 hidden z-10 md:block")
+    .form-overlay(class=" w-full md:w-[50%] h-full absolute top-0 left-0 transition-all duration-1000 hidden z-10 md:block")
       .overlay-one(class="absolute w-full h-full bg-orange-600 duration-1000 flex flex-col items-center justify-center" v-if="formSelected")
         h2(class="text-2xl font-semibold my-4") Have already an account
         p(class="text-base") Log-in with email and password
@@ -76,6 +84,7 @@ main(class="h-screen dark:bg-slate-900 flex justify-center items-center")
 <script setup lang="ts">
   import useVueLidade from '@vuelidate/core';
   import { required, email } from '@vuelidate/validators';
+
   type Theme = 'light' | 'dark';
 
   const setColorTheme = (newTheme: Theme) => {
