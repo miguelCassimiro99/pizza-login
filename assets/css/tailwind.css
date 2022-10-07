@@ -4,6 +4,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 .form-register {
   transform: translateX(-100%);
   z-index: -1;
@@ -36,4 +37,19 @@
     transform: translateX(0%);
     position: absolute;
   }
+}
+
+
+/*? Autocomplete - webkit */
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus {
+  -webkit-text-fill-color: #EA580C;
+  -webkit-box-shadow: 0 0 0px 1000px #0F172A inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+input {
+  caret-color: #EA580C;
 }
