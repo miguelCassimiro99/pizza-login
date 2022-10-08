@@ -1,5 +1,6 @@
 <template lang="pug">
-main(class="h-screen dark:bg-slate-900 flex justify-center items-center font-nunito")
+main(class="h-screen dark:bg-slate-900 flex justify-center items-center font-nunito z-100")
+
   .login-container(
     class="h-full w-full md:h-[480px] md:w-[768px] rounded-md shadow-none md:shadow-xl overflow-hidden border-slate-900 relative"
     :class="formSelected ? 'toggle' : ''"
@@ -8,7 +9,7 @@ main(class="h-screen dark:bg-slate-900 flex justify-center items-center font-nun
     .form-container(class="h-full flex")
       form.form-login(
         @submit.prevent="submitLoginForm"
-        class="h-full w-full md:w-[50%] duration-1000 absolute md:relative flex flex-col items-center justify-evenly py-6 px-6"
+        class="h-full w-full md:w-[50%] bg-slate-900 duration-1000 absolute md:relative flex flex-col items-center justify-evenly py-6 px-6"
       )
         h2(class="text-3xl font-semibold text-orange-600 capitalize") Login with
 
