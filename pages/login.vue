@@ -37,7 +37,10 @@ main(class="h-screen dark:bg-slate-900 flex justify-center items-center font-nun
           type="password"
         )
        
-        button(type="submit" class="text-orange-600") Entrar
+        button(
+          type="submit"
+          class="bg-orange-600 px-8 ring-orange-600 py-2 text-slate-900 hover:ring-2 rounded-lg uppercase font-bold"
+        ) Log in
 
         div
           span(class="text-sm text-red-600" v-for="error in v$.$errors" :key="error.$uid")
@@ -75,7 +78,10 @@ main(class="h-screen dark:bg-slate-900 flex justify-center items-center font-nun
           type="email"
         )
        
-        button(type="button") Entrar
+        button(
+          type="submit"
+          class="bg-orange-600 px-8 ring-orange-600 py-2 text-slate-900 hover:ring-2 rounded-lg uppercase font-bold"
+        ) Sign up
 
         button(
           type="button"
