@@ -52,6 +52,18 @@ main(class="h-screen dark:bg-slate-900 flex justify-center items-center font-nun
       form.form-register(class="h-full w-full md:w-[50%] bg-orange-600 md:bg-slate-900 text-slate-900 md:text-orange-600 duration-1000 flex flex-col items-center justify-evenly py-6 px-6")
         h2(class="text-xl") New register
 
+        div(class="flex justify-center items-center h-9")
+          a(href="#" class="block py-2")
+            font-awesome-icon(icon="fa-brands fa-facebook" class="rounded-full border-2 border-slate-900 hover:border-orange-600 text-orange-600  hover:text-slate-900 hover:bg-orange-600 fa-2x mx-2")
+          a(href="#" class="block py-2")
+            font-awesome-icon(icon="fa-brands fa-google" class="rounded-full border-2 border-slate-900 hover:border-orange-600 text-orange-600  hover:text-slate-900 hover:bg-orange-600 fa-2x mx-2")
+          a(href="#" class="block py-2")
+            font-awesome-icon(icon="fa-brands fa-github" class="rounded-full border-2 border-slate-900 hover:border-orange-600 text-orange-600  hover:text-slate-900 hover:bg-orange-600 fa-2x mx-2")
+
+
+        hr
+        span(class="text-orange-500") or
+
         base-input(
           label="Username"
           v-model="formData.username"
