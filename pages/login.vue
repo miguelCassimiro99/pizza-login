@@ -26,12 +26,14 @@ main(class="h-screen dark:bg-slate-900 flex justify-center items-center font-nun
         span(class="text-orange-500") or
 
         base-input(
+          class="py-2 px-3 text-base dark:text-orange-600 bg-slate-900 placeholder-orange-400 border-b-2 border-orange-600 focus:ring-0"
           label="Email"
           v-model="formData.email"
           type="email"
         )
 
         base-input(
+          class="py-2 px-3 text-base dark:text-orange-600 bg-slate-900 placeholder-orange-400 border-b-2 border-orange-600 focus:ring-0"
           label="Password"
           v-model="formData.password"
           type="password"
@@ -57,22 +59,30 @@ main(class="h-screen dark:bg-slate-900 flex justify-center items-center font-nun
 
         div(class="flex justify-center items-center h-9")
           a(href="#" class="block py-2")
-            font-awesome-icon(icon="fa-brands fa-facebook" class="rounded-full border-2 border-slate-900 hover:border-orange-600 text-orange-600  hover:text-slate-900 hover:bg-orange-600 fa-2x mx-2")
+            font-awesome-icon(
+              icon="fa-brands fa-facebook"
+              class="rounded-full border-2 fa-2x mx-2 text-slate-900 md:text-orange-600 border-orange-600 md:border-slate-900 hover:border-slate-900 md:hover:border-orange-600 md:hover:text-slate-900 hover:text-orange-600 hover:bg-slate-900 md:hover:bg-orange-600")
           a(href="#" class="block py-2")
-            font-awesome-icon(icon="fa-brands fa-google" class="rounded-full border-2 border-slate-900 hover:border-orange-600 text-orange-600  hover:text-slate-900 hover:bg-orange-600 fa-2x mx-2")
+            font-awesome-icon(
+              icon="fa-brands fa-google"
+              class="rounded-full border-2 fa-2x mx-2 text-slate-900 md:text-orange-600 border-orange-600 md:border-slate-900 hover:border-slate-900 md:hover:border-orange-600 md:hover:text-slate-900 hover:text-orange-600 hover:bg-slate-900 md:hover:bg-orange-600")
           a(href="#" class="block py-2")
-            font-awesome-icon(icon="fa-brands fa-github" class="rounded-full border-2 border-slate-900 hover:border-orange-600 text-orange-600  hover:text-slate-900 hover:bg-orange-600 fa-2x mx-2")
+            font-awesome-icon(
+              icon="fa-brands fa-github"
+              class="rounded-full border-2 fa-2x mx-2 text-slate-900 md:text-orange-600 border-orange-600 md:border-slate-900 hover:border-slate-900 md:hover:border-orange-600 md:hover:text-slate-900 hover:text-orange-600 hover:bg-slate-900 md:hover:bg-orange-600")
 
 
         hr
-        span(class="text-orange-500") or
+        span(class="text-slate-900 md:text-orange-600") or
 
         base-input(
+          class="py-2 px-3 text-base dark:md:text-orange-600 bg-orange-600 md:bg-slate-900 placeholder-slate-900 md:placeholder-orange-400 border-b-2 border-slate-900 md:border-orange-600 focus:ring-0"
           label="Username"
           v-model="formData.username"
         )
 
         base-input(
+          class="py-2 px-3 text-base dark:md:text-orange-600 bg-orange-600 md:bg-slate-900 placeholder-slate-900 md:placeholder-orange-400 border-b-2 border-slate-900 md:border-orange-600 focus:ring-0"
           label="Email"
           v-model="formData.email"
           type="email"
@@ -85,11 +95,11 @@ main(class="h-screen dark:bg-slate-900 flex justify-center items-center font-nun
 
         button(
           type="button"
-          class="text-orange-600 underline block md:hidden"
+          class="text-slate-900 md:text-orange-600 underline block md:hidden"
           @click="toggleForm()"
         ) Have an account? Login
 
-    .form-overlay(class=" w-full md:w-[50%] h-full absolute top-0 left-0 transition-all duration-1000 hidden z-10 md:block")
+    .form-overlay(class=" w-full md:w-[50%] text-slate-900 h-full absolute top-0 left-0 transition-all duration-1000 hidden z-10 md:block")
       .overlay-one(class="absolute w-full h-full bg-orange-600 duration-1000 flex flex-col items-center justify-center" v-if="formSelected")
         h2(class="text-2xl font-semibold my-4") Have already an account
         p(class="text-base") Log-in with email and password
