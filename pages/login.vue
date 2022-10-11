@@ -8,7 +8,7 @@ main(class="h-screen dark:bg-slate-900 flex justify-center items-center font-nun
 
     .form-container(class="h-full flex")
       form.form-login(
-        @submit.prevent="submitLoginForm"
+        @submit.prevent="login()"
         class="h-full w-full md:w-[50%] bg-slate-900 duration-1000 absolute md:relative flex flex-col items-center justify-evenly py-6 px-6"
       )
         h2(class="text-3xl font-semibold text-orange-600 capitalize") Login with
@@ -54,7 +54,10 @@ main(class="h-screen dark:bg-slate-900 flex justify-center items-center font-nun
           @click="toggleForm()"
         ) Create new account
 
-      form.form-register(class="h-full w-full md:w-[50%] bg-orange-600 md:bg-slate-900 text-slate-900 md:text-orange-600 duration-1000 flex flex-col items-center justify-evenly py-6 px-6")
+      form.form-register(
+        @submit.prevent="signUp()"
+        class="h-full w-full md:w-[50%] bg-orange-600 md:bg-slate-900 text-slate-900 md:text-orange-600 duration-1000 flex flex-col items-center justify-evenly py-6 px-6"
+        )
         h2(class="text-xl") New register
 
         div(class="flex justify-center items-center h-9")
@@ -77,15 +80,16 @@ main(class="h-screen dark:bg-slate-900 flex justify-center items-center font-nun
 
         base-input(
           class="py-2 px-3 text-base dark:md:text-orange-600 bg-orange-600 md:bg-slate-900 placeholder-slate-900 md:placeholder-orange-400 border-b-2 border-slate-900 md:border-orange-600 focus:ring-0"
-          label="Username"
-          v-model="formData.username"
+          label="Email"
+          v-model="formData.email"
+          type="email"
         )
 
         base-input(
           class="py-2 px-3 text-base dark:md:text-orange-600 bg-orange-600 md:bg-slate-900 placeholder-slate-900 md:placeholder-orange-400 border-b-2 border-slate-900 md:border-orange-600 focus:ring-0"
-          label="Email"
-          v-model="formData.email"
-          type="email"
+          label="Password"
+          v-model="formData.password"
+          type="password"
         )
        
         button(
@@ -150,5 +154,35 @@ main(class="h-screen dark:bg-slate-900 flex justify-center items-center font-nun
     if(!results) console.log('Form: its not submited error');
     if(results) console.log('Form: user has been created')
   }
+
+  const client = useSupabaseClient()
+  const signUp = async () => {
+    const { user, error } = await client.auth.signUp({
+      email: formData.email,
+      password: formData.password
+    })
+
+    console.log('SUPABASE: user', user)
+    console.log('SUPABASE: error', error)
+
+  }
+
+  const login = async () => {
+    const { user, error } = await client.auth.signIn({
+      email: formData.email,
+      password: formData.password
+    })
+
+    console.log('SUPABASE: user', user)
+    console.log('SUPABASE: error', error)
+  }
+
+  const user = useSupabaseUser();
+
+  onMounted(() => {
+    watchEffect(() => {
+      if (user.value) navigateTo('/notes')
+    })
+  })
 
 </script>
