@@ -5,10 +5,10 @@ This project was made using Nuxt 3 with the intention to test some features of t
 
 | :placard: Vitrine.Dev |     |
 | -------------  | --- |
-| :sparkles: Nome        | **Nuxt 3 + Login Page + Supabase**
-| :label: Tecnologias | Nuxt 3, TailwindCss, Supabase, Vuelidate, Pug
+| :sparkles: Name        | **Nuxt 3 + Login Page + Supabase**
+| :label: Technologies | Nuxt 3, TailwindCss, Supabase, Vuelidate, Pug
 | :rocket: URL         | https://pizza-login-r9ir4q03a-miguelcassimiro99.vercel.app/
-| :fire: Desafio     | Does not apply
+| :fire: Challenge     | Does not apply
 
 
 ### Images
