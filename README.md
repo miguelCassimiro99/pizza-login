@@ -1,12 +1,20 @@
 # Nuxt 3 + Login Page + Supabase
 
-This project was made using Nuxt 3 with the intention to test some features of the new version of this frameword. The deployment was performed on Vercel and you can see the result here:
+This project was made using Nuxt 3 with the intention to test some features of the new version of this frameword. The deployment was performed on Vercel.
 
-🌐 [App](https://pizza-login-r9ir4q03a-miguelcassimiro99.vercel.app/)
+
+| :placard: Vitrine.Dev |     |
+| -------------  | --- |
+| :sparkles: Nome        | **Nuxt 3 + Login Page + Supabase**
+| :label: Tecnologias | Nuxt 3, TailwindCss, Supabase, Vuelidate, Pug
+| :rocket: URL         | https://pizza-login-r9ir4q03a-miguelcassimiro99.vercel.app/
+| :fire: Desafio     | Does not apply
+
 
 ### Images
+<!-- Inserir imagem com a #vitrinedev ao final do link -->
+![](https://raw.githubusercontent.com/miguelCassimiro99/pizza-login/master/public/pizza-login-login.PNG#vitrinedev)
 
-<img src="/public/pizza-login-login.PNG" alt="Login Form"/>
 <img src="/public/pizza-login-register.PNG" alt="Register Form"/>
 
 How does it works 🔍
